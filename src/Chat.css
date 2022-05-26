@@ -1,0 +1,24 @@
+#board {
+    width: 500px;
+    height: 500px;
+}
+#send {
+    width: 100px;
+    height: 50px;
+    background: #a8d8ff;
+    font-size: 12pt;
+}
+#message {
+    width: 400px;
+    height: 45px;
+}
+#message_send {
+    text-align: center;
+}
+#board {
+    text-align: center;
+}
+#users {
+    text-align: center;
+    font-size: 16pt;
+}
