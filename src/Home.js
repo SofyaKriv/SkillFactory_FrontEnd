@@ -10,7 +10,7 @@ function Home () {
         <div>
             <Link to="/videos"><button class="button"><span>Видео</span></button></Link>
             <Link to="/categories"><button class="button"><span>Категории</span></button></Link>
-            <Link to="/chat"><button class="button"><span>Чат</span></button></Link>
+            <div className="textHome">VIDEOSHOW</div>
         </div>
     </React.Fragment>
     );

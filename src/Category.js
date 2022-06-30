@@ -11,7 +11,7 @@ function Category(props) {
     return (
         <React.Fragment>
 
-            <tr><Link to={`/categories/${props.category.id}`} activeClassName="active"> {props.category.theme}</Link></tr>
+            <tr><Link to={`/categories/${props.category.id}`} className='link'> {props.category.theme}</Link></tr>
 
         </React.Fragment>
     )
