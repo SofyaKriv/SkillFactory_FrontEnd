@@ -8,20 +8,21 @@ import axios from "axios";
 
 function Messages(props) {
     const [messages, setMessages] = useState([]);
+    let mes = []
     if (!messages.length) {
         axios.get(`http://localhost:8000/api/messages/`).
         then(res => {
             for (let d in res.data) {
                 if (res.data[d].sender === props.sender && res.data[d].receiver === props.receiver) {
-                    setMessages(res.data[d].message);
+                    mes.push(res.data[d].message)
+                    setMessages(mes);
 
                 }
         };
     })}
-    console.log(messages);
     return (
         <React.Fragment>
-            {messages}
+            {messages.map(message => <p>{message}</p>)}
         </React.Fragment>
     )
 }

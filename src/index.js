@@ -4,13 +4,26 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { Auth0Provider } from "@auth0/auth0-react";
+import { getConfig } from "./config";
 import {BrowserRouter as Router} from 'react-router-dom';
+
+const config = getConfig();
+
+const providerConfig = {
+  domain: config.domain,
+  clientId: config.clientId,
+  ...(config.audience ? { audience: config.audience } : null),
+  redirectUri: window.location.origin,
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
-    <App />
-  </Router>
+    <Auth0Provider {...providerConfig} useRefreshTokens={true} cacheLocation="localstorage">
+      <Router>
+        <App />
+      </Router>
+    </Auth0Provider>
 );
 
 // If you want your app to work offline and load faster, you can change

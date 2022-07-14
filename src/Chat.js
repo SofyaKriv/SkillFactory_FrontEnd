@@ -5,6 +5,7 @@ import Table from "react-bootstrap/Table";
 import axios from "axios";
 import Users from "./Users";
 import Messages from "./Messages";
+import { Link } from "react-router-dom";
 
 import "./Chat.css";
 
@@ -40,7 +41,8 @@ function Chat() {
             headers: {
                 "Content-Type": 'application/json'
             }
-        }
+        },
+        window.location.reload(),
     )
     .then(res => console.log(res))
     .catch(error => console.err(error))
@@ -48,18 +50,24 @@ function Chat() {
     }
     return (
         <React.Fragment>
-            <div id="users">
-                <Users sender={ sender } receiver={ receiver }/>
+        <div>
+            <Link to="/"><button className="button"><span>Меню</span></button></Link>
+            <div className="textChat">ЧАТ</div>
+            <div className="divChat">
+                <Table className="tableChat">
+                    <tr id='users'>
+                        <Users sender={ sender } receiver={ receiver }/>
+                    </tr>
+                    <tr id='message'>
+                        <Messages sender={ sender } receiver={ receiver }/>
+                    </tr>
+                    <tr id="message_sendChat">
+                        <input id="messageChat" type="text" name="message" onChange={(event) => setMessage(event.target.value)}/>
+                        <input id="sendChat" type="submit" value="Отправить" onClick={() => handleClick()} />
+                    </tr>
+                </Table>
             </div>
-            <form>
-                <div id="board">
-                    <Messages sender={ sender } receiver={ receiver }/>
-                </div>
-                <div id="message_send">
-                    <input id="message" type="text" name="message" onChange={(event) => setMessage(event.target.value)}/>
-                    <input id="send" type="submit" value="Отправить" onClick={() => handleClick()} />
-                </div>
-            </form>
+        </div>
         </React.Fragment>
     )
 }

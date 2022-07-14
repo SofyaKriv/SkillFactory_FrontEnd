@@ -3,6 +3,8 @@ import axios from "axios";
 import Table from "react-bootstrap/Table";
 import Category from "./Category";
 import CategoryInfo from "./CategoryInfo";
+import { Link } from "react-router-dom";
+import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 import "./Categories.css";
 
@@ -16,16 +18,25 @@ function Categories() {
 
     return(
     <React.Fragment>
-        <h1> Категории </h1>
-        <Table>
-            <tbody>
-                <tr>
-                    {categories.map(category => <Category category={category}/>)}
-                </tr>
-            </tbody>
-        </Table>
+    <div>
+        <Link to="/"><button className="button"><span>Меню</span></button></Link>
+        <div className="textCat">КАТЕГОРИИ</div>
+        <div className='data'>
+            <Table width='100%'>
+                <tbody align="center" margin-top="50%">
+                    <tr>
+                        {categories.map(category => <Category category={category}/>)}
+                    </tr>
+                </tbody>
+            </Table>
+        </div>
+    </div>
     </React.Fragment>
     );
 }
 
-export default Categories;
+//export default Categories;
+export default withAuthenticationRequired(Categories, {
+  // Show a message while the user waits to be redirected to the login page.
+  onRedirecting: () => (<p> Redirecting ... </p>)
+});

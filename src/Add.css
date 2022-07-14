@@ -1,0 +1,48 @@
+input[type=submit] {
+    width: 100%;
+    height: 50px;
+    background-color: #008080;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=text] {
+    width: 100%;
+    height: 50px;
+    padding: 12px 20px;
+    margin: 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.author, .title, .video {
+    font-size: 20pt;
+    font-family: 'Roboto', 'Arial', 'Segoe UI', sans-serif;
+    text-align: center;
+}
+
+.textVideo {
+  background-color: white;
+  color: black;
+  font-size: 3vw;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 10px;
+  width: 30%;
+  text-align: center;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+form {
+    position: relative;
+    padding-top: 5%;
+}

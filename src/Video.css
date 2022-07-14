@@ -1,4 +1,10 @@
-.selected-city {
-    background: yellowgreen;
+h3 {
+    font-family: 'Arial', 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 24pt;
+    color: white;
 }
-
+h4 {
+    font-family: 'Arial', 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 16pt;
+    color: white;
+}
